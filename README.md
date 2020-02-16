@@ -11,18 +11,18 @@ En ella aparte de poder ver sus datos y características podrás simular batalla
 | ID| METHOD|PATH|DESCRIPTION| 
 | ----- | ---- | ---- | ---- |
 | 0 | GET|/index | Index |
-| 0 | GET|/index | Index |
-| 0 | GET|/login | Login |
-| 0 | POST|/login | Login |
-| 0 | GET|/signup |  Registro
-| 0 | POST|/signup |  Registro
-| 0 | GET|/heroes | Heroes Info |
-| 0 | POST|/heroes |Heroes Info |
-| 0 | GET|/heroes/details/id | id |
-| 0 | POST|/heroes/details/id | Agregar favorito |
-| 0 | GET|/heroes/battles |Batallas entre equipos |
-| 0 | POST|/heroes/battles |Batallas entre equipos |
-| 0 | GET|/profile | Perfil  |
+| 1 | POST|/index | Index |
+| 2 | GET|/login | Login |
+| 3 | POST|/login | Login |
+| 4 | GET|/signup |  Registro
+| 5 | POST|/signup |  Registro
+| 6 | GET|/heroes | Heroes Info |
+| 7 | POST|/heroes |Heroes Info |
+| 8 | GET|/heroes/details/id | id |
+| 9 | POST|/heroes/details/id | Agregar favorito |
+| 10 | GET|/heroes/battles |Batallas entre equipos |
+| 11 | POST|/heroes/battles |Batallas entre equipos |
+| 12 | GET|/profile | Perfil  |
 
 
 ## Uso
