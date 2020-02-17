@@ -14,7 +14,7 @@ const app = express();
 require('./configs/middleware.config')(app)
 // Express View engine setup
 require('./configs/preformatter.config')(app)
-require('./configs/views.configs')(app)
+require('./configs/views.config')(app)
 require('./configs/locals.config')(app)
 
 hbs.registerHelper("ifUndefined", (value, options) => {
