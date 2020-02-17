@@ -6,10 +6,14 @@ const {
 
 const heroesSchema = new Schema({
   name: String,
-  bso: String,
   idBD: Number,
-  image: String,
-  fullName: String
+  image: {
+    type: String,
+    default: ''
+  },
+  fullName: String,
+  publisher: String,
+  firstAppearance: String
 });
 
-module.exports = model('Heroes', PostSchema);
+module.exports = model('Heroes', heroesSchema);

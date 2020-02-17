@@ -5,7 +5,8 @@ const userSchema = new Schema({
   username: String,
   password: String,
   teams: Array,
-  favourits: Array
+  favourites: Array,
+  avatarPath: String
 }, {
   timestamps: {
     createdAt: 'created_at',
