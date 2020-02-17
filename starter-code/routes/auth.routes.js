@@ -89,9 +89,10 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.post("/logout", ensureLoggedIn("/login"), (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
 
 module.exports = router;
