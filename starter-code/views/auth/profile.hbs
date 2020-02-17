@@ -1,16 +1,22 @@
-<h1>Welcome, {{User.username}}! </h1>
+<div class="row">
 
-<figure>
-  <img class="pic" src="{{user.path}}" alt="{{user.pictureName}}">
-</figure>
+  <div class="col-lg-4">
+    <figure>
+      <img class="avatar" src="{{user.avatarPath}}" alt="{{user.username}}">
+    </figure>
+    <h1>Welcome, {{user.username}}! </h1>
+  </div>
+
+</div>
 
 
-<section class="file-upload">
-  <h6>Upload your picture to your profile</h6>
-  <form action="/profile" method="post" enctype="multipart/form-data">
-    <input type="file" name="phototoupload"><br>
-    <input type="submit" value="Save"><br>
-  </form>
-</section>
-
+<div class="col-lg-6">
+  <section class="file-upload">
+    <h6>Upload your picture to your profile</h6>
+    <form action="/profile" method="post" enctype="multipart/form-data">
+      <input type="file" name="phototoupload"><br>
+      <input type="submit" value="Save"><br>
+    </form>
+  </section>
+</div>
 <br><br>

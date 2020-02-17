@@ -1,0 +1,12 @@
+<p>Lista de héroes</p>
+<div class="row">
+
+  {{#each heroes}}
+
+  <div class="col-md-3">
+    {{>heroCard this}}
+  </div>
+
+  {{/each}}
+
+</div>

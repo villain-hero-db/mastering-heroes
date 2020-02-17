@@ -2,6 +2,9 @@ require("dotenv").config();
 
 const hbs = require("hbs");
 const flash = require("connect-flash");
+const path = require("path")
+
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 
 // Database
 require("./configs/mongoose.config");

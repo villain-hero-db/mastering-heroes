@@ -35,7 +35,13 @@
           <a class="nav-link" href="/profile">Profile</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/heroes">Heroes list</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <li class="nav navbar-nav navbar-right">
+          <a href="#search">Search</a>
         </li>
       </ul>
     </div>
@@ -46,9 +52,15 @@
     {{{body}}}
 
   </div>
+  <div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+      <input type="search" value="" placeholder="type keyword(s) here" />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-  <script src="/javascripts/APIHandler.js"></script>
   <script src="/javascripts/APIScript.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
