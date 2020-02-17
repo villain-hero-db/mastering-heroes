@@ -1,0 +1,23 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  body h2 {
+    margin-bottom: 20px; }
+  body input {
+    margin-bottom: 20px; }
+  body button {
+    margin-bottom: 20px; }
+  body label {
+    font-size: 1rem; }
+
+a {
+  color: #00B7FF; }
+
+nav {
+  margin-bottom: 50px; }
+
+.navbar {
+  padding: 15px 40px; }
+  .navbar img {
+    height: 50px; }
+
+/*# sourceMappingURL=style.css.map */
