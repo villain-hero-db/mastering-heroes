@@ -8,6 +8,8 @@ const heroesSchema = new Schema({
   name: String,
   bso: String,
   idBD: Number,
+  image: String,
+  fullName: String
 });
 
 module.exports = model('Heroes', PostSchema);
