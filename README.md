@@ -1,7 +1,6 @@
 # mastering-heroes
-# WikiHeroes
 
-Wikiheroes es un website que recopila datos de mas de 500 héroes y villanos.
+Mastering Heroes es un website que recopila datos de mas de 500 héroes y villanos.
 
 En ella aparte de poder ver sus datos y características podrás simular batallas entre ellos.
 
