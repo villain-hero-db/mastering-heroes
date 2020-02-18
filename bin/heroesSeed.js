@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
 const Heroes = require('../models/heroes.model')
-const dbtitle = 'mastering-heroes'
 const axios = require("axios");
-mongoose.connect(`mongodb://localhost/${dbtitle}`, {
+mongoose.connect(process.env.DB_LOCAL, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 })

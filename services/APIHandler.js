@@ -13,6 +13,7 @@ class APIHandler {
       .catch(err => console.log('El error al coger los detalles del heroes es:', err))
   }
 
+  
 
 
 }

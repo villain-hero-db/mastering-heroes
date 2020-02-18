@@ -1,0 +1,78 @@
+<a href="/heroes">Return to list</a>
+<br><br>
+<div class="row">
+  <div class="col-lg-5">
+    <figure>
+      <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
+    </figure>
+    <div class="fav-btn">
+      <form action="/heroes/details/{{heroes.id}}" method="POST">
+        <input type="submit" class="btn" value="Favoritos">
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <h1>{{heroes.name}}</h1>
+    <p><strong>Place of birth: </strong>{{heroes.biography.place-of-birth}}</p>
+    <p><strong>Full name: </strong>{{heroes.biography.full-name}}</p>
+    <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
+
+    <section class="canvas-size">
+      <figure>
+        <canvas id="q1"></canvas>
+      </figure>
+    </section>
+
+  </div>
+  {{#each spotify}}
+  <p>{{name}}</p>
+  {{album.external_urls.spotify}}
+  <img src="{{album.images.1.url}}" alt="{{name}}">
+  <figure>
+    <audio controls src="{{preview_url}}">
+      Your browser does not support the
+      <code>audio</code> element.
+    </audio>
+  </figure>
+  {{/each}}
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script>
+
+
+
+  const drawBarChart = (id) => {
+
+    new Chart(id, {
+      type: 'polarArea',
+      data: {
+        labels: ['Strength', 'Speed', 'Durability', 'Power', 'Combat'],
+        datasets: [{
+          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.power }}
+        ],
+  borderColor: 'white',
+    borderWidth: 2,
+      backgroundColor: [
+        'rgba(190, 60, 60, .2)',
+        'rgba(60, 120, 190, .2)',
+        'rgba(120, 190, 60, .2)',
+        'rgba(60, 50, 50, .2)',
+        'rgba(120, 60, 190, .2)']
+      }]
+    },
+  options: {
+    legend: {
+      position: 'left'
+    }
+  }
+    })
+  }
+
+  drawBarChart('q1')
+
+
+</script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>

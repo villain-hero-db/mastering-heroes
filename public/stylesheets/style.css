@@ -40,6 +40,17 @@ nav {
   object-fit: cover;
   border-radius: 10px; }
 
+.canvas-size {
+  width: 500px; }
+
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  left: 30px; }
+  .fav-btn .btn {
+    text-transform: uppercase;
+    background-color: #fdd100; }
+
 #search {
   position: fixed;
   top: 0px;

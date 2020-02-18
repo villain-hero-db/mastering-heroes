@@ -20,6 +20,7 @@ router.get('/heroes/details/:id', (req, res) => {
   const heroId = req.params.id
 
   const heroesPromise = heroesAPI.getHeroDetails(heroId);
+
   const spotifyPromise = Hero.findOne({ idBD: { $eq: heroId } })
     .then(res => {
       return spotifyApi.searchTracks(res.name)
@@ -34,13 +35,13 @@ router.get('/heroes/details/:id', (req, res) => {
 
   Promise.all([heroesPromise, spotifyPromise])
     .then(results => {
-      console.log(results[1])
       res.render("heroes/hero-details", {
         heroes: results[0],
         spotify: results[1].splice(0, 5)
       })
     }
     )
+
     .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
 })
 

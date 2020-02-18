@@ -49,7 +49,19 @@ height: 300px;
 object-fit: cover;
 border-radius: 10px;
 }
+.canvas-size{
+  width: 500px;
+}
 
+.fav-btn{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    .btn{
+      text-transform: uppercase ;
+      background-color: #fdd100;
+    }
+}
 
 
 
