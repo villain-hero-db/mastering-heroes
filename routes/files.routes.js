@@ -37,7 +37,7 @@ router.get('/heroes/details/:id', (req, res) => {
     .then(results => {
       res.render("heroes/hero-details", {
         heroes: results[0],
-        spotify: results[1].splice(0, 5)
+        spotify: results[1].splice(0, 4)
       })
     }
     )
