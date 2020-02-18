@@ -13,7 +13,11 @@ class APIHandler {
       .catch(err => console.log('El error al coger los detalles del heroes es:', err))
   }
 
-  
+  getHeroSearch(toSearch) {
+    return this.axiosApp.get(`search/${toSearch}`)
+      .then(response => response.data)
+      .catch(err => console.log('El error al coger los detalles del heroes es:', err))
+  }
 
 
 }
