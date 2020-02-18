@@ -3,13 +3,29 @@
 <div class="row">
   <div class="col-lg-5">
     <figure>
-      <img class="main-img" src="{{image.url}}" alt="{{name}}">
+      <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
     </figure>
-
+    .
   </div>
   <div class="col-lg-7">
-    <h1>{{name}}</h1>
+    <h1>{{heroes.name}}</h1>
+
+    <form action="/heroes/details/{{heroes.id}}" method="POST">
+      <input type="submit" class="btn btn-primary" value="Agregar a favoritos">
+    </form>
 
   </div>
+  {{#each spotify}}
+  <p>{{name}}</p>
+  {{album.external_urls.spotify}}
+  <img src="{{album.images.1.url}}" alt="{{name}}">
+  <figure>
+    <audio controls src="{{preview_url}}">
+      Your browser does not support the
+      <code>audio</code> element.
+    </audio>
+  </figure>
+  {{/each}}
+
 
 </div>

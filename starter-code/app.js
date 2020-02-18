@@ -19,6 +19,8 @@ require('./configs/middleware.config')(app)
 require('./configs/preformatter.config')(app)
 require('./configs/views.config')(app)
 require('./configs/locals.config')(app)
+//Spotify
+require('./configs/spotify.config')
 
 hbs.registerHelper("ifUndefined", (value, options) => {
   if (arguments.length < 2)
@@ -37,6 +39,9 @@ require("./passport")(app);
 app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/auth.routes"));
 app.use("/", require("./routes/files.routes"));
+
+
+
 
 
 module.exports = app;
