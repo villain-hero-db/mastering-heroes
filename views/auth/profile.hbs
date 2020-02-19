@@ -6,7 +6,9 @@
     </figure>
     <h1>Welcome, {{user.username}}! </h1>
 
-    <section class="file-upload">
+    <button id="btn-upload" class="btn btn-dark mt-3">Add photo to your avatar</button>
+
+    <section class="file-upload visibility">
       <h6>Upload your picture to your profile</h6>
       <form action="/profile" method="post" enctype="multipart/form-data">
         <input type="file" name="phototoupload"><br>
@@ -19,11 +21,9 @@
     <h3 class="text-center">Favourites heroes</h3>
     <div class="row p-3">
       {{#each user.favourites}}
-      <div class="col-md-3 text-center">
-        <a href="/heroes/details/{{idBD}}"><img class="hero-img-pf" src="{{image}}" alt="{{name}}"></a>
-        <p class="mt-2">{{name}}</p>
-      </div>
-
+      <div class="col-md-3 mt-3">
+        {{>indexCard this}}
+      </div> 
       {{/each}}
 
     </div>
