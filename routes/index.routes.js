@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
   Hero.find()
     .then(response => res.render('index', {
-      randomHero: response.splice(0, 12),
+      randomHero: response.splice(Math.floor(Math.random() * (650 - 1)) + 1, 12),
     }))
 })
 
@@ -19,11 +19,11 @@ router.post('/api', (req, res) => {
   const heroSearch = req.body.input
 
   Hero.find({
-      "name": {
-        $regex: `.*${heroSearch}.*`,
-        $options: 'i'
-      }
-    })
+    "name": {
+      $regex: `.*${heroSearch}.*`,
+      $options: 'i'
+    }
+  })
     .then(response => {
       console.log(response)
       // res.render('index', {

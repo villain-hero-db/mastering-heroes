@@ -25,10 +25,10 @@ router.get('/heroes/details/:id', (req, res) => {
   const heroesPromise = heroesAPI.getHeroDetails(heroId);
 
   const spotifyPromise = Hero.findOne({
-      idBD: {
-        $eq: heroId
-      }
-    })
+    idBD: {
+      $eq: heroId
+    }
+  })
     .then(res => {
       return spotifyApi.searchTracks(res.name)
         .then(function (data) {
@@ -56,8 +56,8 @@ router.post('/api/heroes/details', (req, res) => {
 
 
   Hero.findOne({
-      "idBD": req.body.heroID
-    })
+    "idBD": req.body.heroID
+  })
     .then(response => {
 
       if (req.user.favourites.includes(response._id)) {
