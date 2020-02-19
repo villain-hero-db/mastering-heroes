@@ -12,7 +12,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <img class="img-logo" src="/images/logo-mastering.png" alt="logo">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,11 +46,6 @@
     </div>
   </nav>
 
-  <div class="container">
-
-    {{{body}}}
-
-  </div>
   <div id="search">
     <button type="button" class="close">×</button>
     <form>
@@ -58,6 +53,37 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
+
+  <main>
+    <div class="container">
+
+      {{{body}}}
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul>
+            <li class="footer-title">More info</li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script src="/javascripts/APIScript.js"></script>

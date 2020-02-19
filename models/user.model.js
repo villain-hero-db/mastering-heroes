@@ -4,7 +4,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   teams: Array,
-  favourites: Array,
+  favourites: [{ type: Schema.Types.ObjectId, ref: 'Heroes' }],
   avatarPath: {
     type: String,
     default: "https://www.superherodb.com/pictures2/portraits/10/100/10255.jpg"

@@ -22,10 +22,12 @@ a {
 }
 
 nav{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .navbar{
   padding: 15px 40px;
+  background-color: #68c78e;
+  border-bottom: 4px solid #fdd100;;
   img{ height: 50px;
   }
   }
@@ -43,6 +45,10 @@ nav{
 width: 400px;
 }
 
+.index-center{
+display: flex;
+justify-content: center;
+}
 .card-img-top{
 width: 100%;
 height: 300px;
@@ -74,7 +80,28 @@ audio{
 }
 }
 
+footer{
+  width: 100%;
+  min-height: 150px;
+  background-color:#68c78e ;
+  padding: 30px 0;
+  margin-top: 50px;
+  li{
+    list-style: none;
+    
+  }
+  .footer-title{
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+  }
+}
 
+.hero-img-pf{
+  width: 100px;
+}
 
 
 
