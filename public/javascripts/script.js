@@ -16,21 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   document.getElementById("index-input").addEventListener('keyup', () => {
-    console.log("holaaaa")
+
     const input = document.getElementById("index-input").value
-    console.log(input)
-    axios.post("/api", {
-        input
-      })
-      .then(response => {
+    console.log(typeof input)
+    console.log(input.length)
+    if ((input.length != 0)) {
+      axios.post("/api", {
+          input
+        })
+        .then(response => {
 
-        let allCharacters = response.data;
-        console.log(allCharacters)
-        document.querySelector('.characters-container').innerHTML = ""
+          let allCharacters = response.data;
+          console.log(allCharacters)
+          document.querySelector('.characters-container').innerHTML = ""
 
-        allCharacters.forEach(element => {
-          const card =
-            `<div class="col-md-3">
+          allCharacters.forEach(element => {
+            const card =
+              `<div class="col-md-3">
             <div class="card p-3" style="width: 18rem;">
               <img class="card-img-top" src="${element.image}" alt="${element.name}">
                 <div class=" card-body">
@@ -43,16 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-          // `<div class="character-info">
-          //   <div class="name">${element.name}</div>
-          //   <div class="occupation">${element.image}</div>`
+            // `<div class="character-info">
+            //   <div class="name">${element.name}</div>
+            //   <div class="occupation">${element.image}</div>`
 
-          document.querySelector('.characters-container').innerHTML += card
-        });
+            document.querySelector('.characters-container').innerHTML += card
+          });
 
-      })
-      .catch(err => console.log(err))
-
+        })
+        .catch(err => console.log(err))
+    }
 
   })
 
