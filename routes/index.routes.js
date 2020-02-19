@@ -6,11 +6,11 @@ const Hero = require('../models/heroes.model')
 router.get('/', (req, res) => {
   const heroSearch = req.query.search
   Hero.find({
-    "name": {
-      $regex: `.*${heroSearch}.*`,
-      $options: 'i'
-    }
-  })
+      "name": {
+        $regex: `.*${heroSearch}.*`,
+        $options: 'i'
+      }
+    })
     .then(response => res.render('index', {
       heroes: response
     }))

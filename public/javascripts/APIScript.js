@@ -9,3 +9,15 @@ function addtoFavourites(heroID) {
 
 
 }
+
+function heroFight(hero1, hero2) {
+    console.log(hero1)
+    console.log(hero2)
+
+    return axios.post("/battles", {
+        hero1,
+        hero2
+    })
+
+
+}

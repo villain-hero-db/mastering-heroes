@@ -53,16 +53,71 @@ router.get('/heroes/details/:id', (req, res) => {
 
 
 router.post('/api/heroes/details', (req, res) => {
-  console.log(req.body)
-  const userFav = {
-    $push: {
-      favourites: req.body.heroID
-    }
-  }
-  User.findByIdAndUpdate(req.user.id, userFav)
-    // .then(x => res.redirect(`/heroes/details/${heroId}`))
-    .catch(err => console.log(err))
 
+
+  Hero.findOne({
+      "idBD": req.body.heroID
+    })
+    .then(response => {
+
+      if (req.user.favourites.includes(response._id)) {
+        console.log("El hero ya esta en favoritos")
+
+        const userFavDelete = {
+          $pull: {
+            favourites: response._id
+          }
+        }
+
+        User.findByIdAndUpdate(req.user.id, userFavDelete)
+          .catch(err => console.log(err))
+
+      } else {
+        const userFav = {
+          $push: {
+            favourites: response._id
+          }
+        }
+        User.findByIdAndUpdate(req.user.id, userFav)
+          .catch(err => console.log(err))
+      }
+
+    })
+
+
+})
+
+//Batallas
+
+router.get('/battles', (req, res) => {
+
+  Hero.find()
+    .then(response => res.render('heroes/heroes-battles', {
+      heroes: response
+    }))
+})
+
+
+router.post('/battles', (req, res) => {
+
+
+  const heroBattle = {
+
+  }
+
+  Hero.findById(req.body.hero1)
+    .then(hero => {
+      heroBattle.team1 = hero
+
+    })
+    .then(() => Hero.findById(req.body.hero2)
+      .then(hero => {
+        heroBattle.team2 = hero
+
+      }))
+    .then(() => res.render('heroes/heroes-battles', {
+      hero: heroBattle.team1.name
+    }))
 
 })
 
