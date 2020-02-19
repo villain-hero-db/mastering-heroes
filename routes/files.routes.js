@@ -46,9 +46,8 @@ router.get('/heroes/details/:id', (req, res) => {
 })
 
 
-router.post('/heroes/details/:id', (req, res) => {
+router.post('/api/heroes/details/:id', (req, res) => {
   const heroId = req.params.id
-  console.log(req.user)
   const userFav = {
     $push: {
       favourites: heroId
@@ -57,6 +56,8 @@ router.post('/heroes/details/:id', (req, res) => {
   User.findByIdAndUpdate(req.user.id, userFav)
     .then(x => res.redirect(`/heroes/details/${heroId}`))
     .catch(err => console.log(err))
+
+  
 })
 
 module.exports = router;
