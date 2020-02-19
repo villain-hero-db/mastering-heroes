@@ -1,16 +1,67 @@
 <div class="index-center">
 
   <h1>{{title}}</h1>
-  <form class="form-inline my-2 my-lg-0" method="get" action="/">
+  {{!-- <form class="form-inline my-2 my-lg-0" method="get" action="/">
     <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> --}}
 
+  {{!-- <form class="form-inline my-2 my-lg-0" method="post" action="/"> --}}
+  <div class="input-home">
+    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search"
+      id="index-input">
+    {{!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+    {{!-- </form> --}}
+  </div>
 </div>
+<div class="row characters-container">
 
+  {{!-- <div class="card p-3" style="width: 18rem;">
+    <img class="card-img-top" src="" alt="">
+    <div class=" card-body">
+      <h5 class="card-title"></h5>
+
+      <a href="" class="btn btn-primary">View more</a>
+    </div>
+  </div> --}}
+</div>
+<div class="row">
+  {{#each randomHero}}
+  <div class="col-md-2 mt-5">
+    {{>indexCard this}}
+  </div>
+  {{/each}}
+</div>
+{{!-- 
+<div class="row carrousel">
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        {{#each randomHero}}
+        <li class="glide__slide"><img class="img-carrousel" src="{{image}}" alt="{{name}}">
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div> --}}
+{{!-- 
 <div class="row">
   {{#each heroes}}
   <div class="col-md-3">
     {{>heroCard this}}
   </div>
   {{/each}}
-  </form>
+</div> --}}
+<script src="../../glide/dist/glide.min.js"></script>
+<script>
+  new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    Breakpoints.match({
+      600: { perView: 3 },
+      1200: { perView: 6 }
+    })    gap: 100,
+    perView: 3,
+  }).mount()
+</script>
