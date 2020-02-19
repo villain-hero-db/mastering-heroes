@@ -15,9 +15,9 @@ const bcryptSalt = 10;
 
 
 router.get("/profile", ensureLoggedIn("/login"), (req, res) => {
-  res.render("auth/profile", {
-    user: req.user
-  });
+  User.findById(req.user.id)
+    .populate('favourites')
+    .then(theUser => res.render('auth/profile', { user: theUser }))
 });
 
 //Add picture to profile

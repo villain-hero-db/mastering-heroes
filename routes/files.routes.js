@@ -62,6 +62,8 @@ router.post('/api/heroes/details', (req, res) => {
   User.findByIdAndUpdate(req.user.id, userFav)
     // .then(x => res.redirect(`/heroes/details/${heroId}`))
     .catch(err => console.log(err))
+
+
 })
 
 module.exports = router;
