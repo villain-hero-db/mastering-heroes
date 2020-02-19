@@ -16,14 +16,7 @@
 </div>
 <div class="row characters-container">
 
-  {{!-- <div class="card p-3" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="">
-    <div class=" card-body">
-      <h5 class="card-title"></h5>
 
-      <a href="" class="btn btn-primary">View more</a>
-    </div>
-  </div> --}}
 </div>
 <div class="row">
   {{#each randomHero}}
@@ -32,36 +25,3 @@
   </div>
   {{/each}}
 </div>
-{{!-- 
-<div class="row carrousel">
-  <div class="glide">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        {{#each randomHero}}
-        <li class="glide__slide"><img class="img-carrousel" src="{{image}}" alt="{{name}}">
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-  </div>
-</div> --}}
-{{!-- 
-<div class="row">
-  {{#each heroes}}
-  <div class="col-md-3">
-    {{>heroCard this}}
-  </div>
-  {{/each}}
-</div> --}}
-<script src="../../glide/dist/glide.min.js"></script>
-<script>
-  new Glide('.glide', {
-    type: 'carousel',
-    startAt: 0,
-    Breakpoints.match({
-      600: { perView: 3 },
-      1200: { perView: 6 }
-    })    gap: 100,
-    perView: 3,
-  }).mount()
-</script>

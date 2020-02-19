@@ -6,10 +6,18 @@
       <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
     </figure>
     <div class="fav-btn">
-      <form action="/api/heroes/details/" method="POST">
-        <input type="submit" class="btn" id="favourite" name="{{heroes.id}}" value="Add to Favs">
+      <form action="/api/heroes/details/" method="POST" name="{{heroes.id}}" id="favourite" class="btn">
+        <i id="fav-on" class="material-icons dsp">
+          favorite
+        </i>
+        <i id="fav-off" class="material-icons">
+          favorite_border
+        </i>
+        {{!-- <input type="submit" name="{{heroes.id}}" value=""> --}}
+
+
       </form>
-         
+
     </div>
   </div>
   <div class="col-lg-7">
@@ -25,30 +33,30 @@
     </section>
 
   </div>
-  </div>
+</div>
 
 
-  <section class="spotify-section">
-          <div class="row">
+<section class="spotify-section">
+  <div class="row">
 
-      {{#each spotify}}
-      <div class="col-md-3">
+    {{#each spotify}}
+    <div class="col-md-3">
 
-        <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
-            alt="{{name}}"></a>
+      <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
+          alt="{{name}}"></a>
 
-        <figure>
-          <audio controls src="{{preview_url}}">
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
-        </figure>
-      </div>
-
-      {{/each}}
+      <figure>
+        <audio controls src="{{preview_url}}">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+      </figure>
     </div>
 
-  </section>
+    {{/each}}
+  </div>
+
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>
@@ -62,7 +70,7 @@
       data: {
         labels: ['Strength', 'Speed', 'Durability', 'Power', 'Combat'],
         datasets: [{
-          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
+          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, { { heroes.powerstats.power } }
         ],
   borderColor: 'white',
     borderWidth: 2,
@@ -86,4 +94,3 @@
 
 
 </script>
-

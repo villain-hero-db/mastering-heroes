@@ -75,15 +75,17 @@ h1{
     }
 input{
   max-width: 400px;
-  border: 2px dotted #68c78e;
+  border: 2px solid #68c78e;
   
   
 }
 .input-home{
   transition: 0.5s;
+  width: 350px;
+
 }
 .input-home:hover{
-    transform: scale(1.2)
+    transform: scale(1.1)
   }
 }
 
@@ -101,6 +103,10 @@ input{
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
+  transition: 0.5s;
+}
+.card-img-index:hover{
+  transform: scale(1.1);
 }
 .canvas-size{
   width: 500px;
@@ -113,6 +119,9 @@ input{
     .btn{
       text-transform: uppercase ;
       background-color: #fdd100;
+    }
+    #favourite{
+      line-height: 0;
     }
 }
 
@@ -151,7 +160,9 @@ footer{
 }
 
 
-
+.dsp{
+  display: none;
+}
 
 // NAV SEARCH
 #search {

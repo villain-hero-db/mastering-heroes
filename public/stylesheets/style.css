@@ -60,11 +60,12 @@ nav {
     max-width: 300px; }
   .index-center input {
     max-width: 400px;
-    border: 2px dotted #68c78e; }
+    border: 2px solid #68c78e; }
   .index-center .input-home {
-    transition: 0.5s; }
+    transition: 0.5s;
+    width: 350px; }
   .index-center .input-home:hover {
-    transform: scale(1.2); }
+    transform: scale(1.1); }
 
 .card-index h6 {
   text-align: center; }
@@ -79,7 +80,11 @@ nav {
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 10px; }
+  border-radius: 10px;
+  transition: 0.5s; }
+
+.card-img-index:hover {
+  transform: scale(1.1); }
 
 .canvas-size {
   width: 500px; }
@@ -91,6 +96,8 @@ nav {
   .fav-btn .btn {
     text-transform: uppercase;
     background-color: #fdd100; }
+  .fav-btn #favourite {
+    line-height: 0; }
 
 .spotify-section {
   margin: 50px 0; }
@@ -117,6 +124,9 @@ footer {
 
 .hero-img-pf {
   width: 100px; }
+
+.dsp {
+  display: none; }
 
 #search {
   position: fixed;
