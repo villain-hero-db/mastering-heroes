@@ -18,3 +18,9 @@ $(function () {
   });
 
 });
+
+document.getElementById('favourite').addEventListener('click', function (event) {
+  event.preventDefault();
+  addtoFavourites(document.getElementById('favourite').value)
+
+});

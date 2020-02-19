@@ -6,9 +6,10 @@
       <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
     </figure>
     <div class="fav-btn">
-      <form action="/heroes/details/{{heroes.id}}" method="POST">
-        <input type="submit" class="btn" value="Favoritos">
+      <form action="/api/heroes/details/" method="POST">
+        <input type="submit" class="btn" id="favourite" value="{{heroes.id}}">
       </form>
+         
     </div>
   </div>
   <div class="col-lg-7">
