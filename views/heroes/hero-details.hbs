@@ -58,6 +58,22 @@
 
 </section>
 
+<section class="spotify-section">
+  <div class="row">
+
+    {{#each movies}}
+    <div class="col-md-3">
+      <img class="spotify-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
+      <h4>{{original_title}}</h4>
+      <p><strong>NOTE: </strong>{{vote_average}}</p>
+      <p>{{overview}}</p>
+    </div>
+
+    {{/each}}
+  </div>
+
+</section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>
 
@@ -70,7 +86,7 @@
       data: {
         labels: ['Strength', 'Speed', 'Durability', 'Power', 'Combat'],
         datasets: [{
-          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, { { heroes.powerstats.power } }
+          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
         ],
   borderColor: 'white',
     borderWidth: 2,

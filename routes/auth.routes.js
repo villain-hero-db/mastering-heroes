@@ -38,7 +38,7 @@ router.post(
   }
 );
 
-router.get("/login", (req, res, next) => {
+router.get("/login", ensureLoggedOut(), (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 

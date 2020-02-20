@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(user.body)
+
   document.getElementById("index-input").addEventListener('keyup', () => {
 
     const input = document.getElementById("index-input").value
     if ((input.length > 1)) {
       axios.post("/api", {
-          input
-        })
+        input
+      })
         .then(response => {
 
           let allCharacters = response.data;
@@ -30,15 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  document.getElementById('btn-upload').addEventListener('click', function (event) {
-    document.querySelector('.file-upload').classList.toggle('visibility')
 
-  });
 
-  document.getElementById('favourite').addEventListener('click', function (event) {
-    event.preventDefault();
-    addtoFavourites(document.getElementById('favourite').name)
-    document.querySelector('#fav-on').classList.toggle('dsp')
-    document.querySelector('#fav-off').classList.toggle('dsp')
-  })
 }, false);
+
+document.getElementById('favourite').addEventListener('click', function (event) {
+  event.preventDefault();
+  addtoFavourites(document.getElementById('favourite').name)
+  document.querySelector('#fav-on').classList.toggle('dsp')
+  document.querySelector('#fav-off').classList.toggle('dsp')
+})
+
+document.getElementById('btn-upload').addEventListener('click', function (event) {
+  document.querySelector('.file-upload').classList.toggle('visibility')
+
+});

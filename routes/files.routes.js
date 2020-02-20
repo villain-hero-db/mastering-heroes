@@ -24,6 +24,22 @@ router.get('/heroes/details/:id', (req, res) => {
 
   const heroesPromise = heroesAPI.getHeroDetails(heroId);
 
+  const moviesPromise = Hero.findOne({
+    idBD: {
+      $eq: heroId
+    }
+  })
+    .then(res => {
+      return axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_API}&query=${res.name}`
+      ).then((data) => {
+        console.log(data.data.results)
+        return data.data.results;
+      })
+        .catch(err => console.log(err))
+    })
+
+    req.user._id
   const spotifyPromise = Hero.findOne({
     idBD: {
       $eq: heroId
@@ -37,14 +53,15 @@ router.get('/heroes/details/:id', (req, res) => {
           console.error(err);
         });
     })
-
     .catch(err => console.log(err))
 
-  Promise.all([heroesPromise, spotifyPromise])
+  Promise.all([heroesPromise, spotifyPromise, moviesPromise])
     .then(results => {
+
       res.render("heroes/hero-details", {
         heroes: results[0],
-        spotify: results[1].splice(0, 4)
+        spotify: results[1].splice(0, 4),
+        movies: results[2].splice(0, 4)
       })
     })
 
@@ -61,8 +78,6 @@ router.post('/api/heroes/details', (req, res) => {
     .then(response => {
 
       if (req.user.favourites.includes(response._id)) {
-        console.log("El hero ya esta en favoritos")
-
         const userFavDelete = {
           $pull: {
             favourites: response._id
