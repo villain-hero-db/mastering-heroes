@@ -24,11 +24,11 @@ router.post('/heroes/api', (req, res) => {
   // const heroSearch = req.query.search
   const heroSort = req.body.input
   Hero.find({
-    "name": {
-      $regex: `^[${heroSort}]`,
-      $options: 'i'
-    }
-  })
+      "name": {
+        $regex: `^[${heroSort}]`,
+        $options: 'i'
+      }
+    })
     .then(response => {
       res.json(response)
     })
@@ -37,22 +37,22 @@ router.post('/heroes/api', (req, res) => {
 })
 
 // Detalle del héroe
-router.get('/heroes/details/:id', (req, res) => {
+router.get('/heroes/details/:id', (req, res, next) => {
   const heroId = req.params.id
 
   const heroesPromise = heroesAPI.getHeroDetails(heroId);
 
   const moviesPromise = Hero.findOne({
-    idBD: {
-      $eq: heroId
-    }
-  })
+      idBD: {
+        $eq: heroId
+      }
+    })
     .then(res => {
       return axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_API}&query=${res.name}`
-      ).then((data) => {
-        return data.data.results;
-      })
+          `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_API}&query=${res.name}`
+        ).then((data) => {
+          return data.data.results;
+        })
         .catch(err => next(new Error(err)))
     })
     .catch(err => next(new Error(err)))
@@ -74,14 +74,20 @@ router.get('/heroes/details/:id', (req, res) => {
     .catch(err => next(new Error(err)))
 
   const favPromise = Hero.findOne({
-    idBD: {
-      $eq: heroId
-    }
-  })
+      idBD: {
+        $eq: heroId
+      }
+    })
     .then(data => {
       if (req.user.favourites.includes(data._id)) {
-        return { x: '', y: 'dsp' }
-      } else return { x: 'dsp', y: '' }
+        return {
+          x: '',
+          y: 'dsp'
+        }
+      } else return {
+        x: 'dsp',
+        y: ''
+      }
     })
     .catch(err => next(new Error(err)))
 
