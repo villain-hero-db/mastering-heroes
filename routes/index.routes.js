@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       randomHero: response.splice(Math.floor(Math.random() * (650 - 1)) + 1, 12),
       user: req.user
     }))
+    .catch(err => next(new Error(err)))
 })
 
 
@@ -30,6 +31,8 @@ router.post('/api', (req, res) => {
       // })
       res.json(response)
     })
+    .catch(err => next(new Error(err)))
+
 })
 
 

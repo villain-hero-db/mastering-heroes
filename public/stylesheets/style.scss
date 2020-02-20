@@ -53,24 +53,24 @@ nav{
     visibility: hidden;
   }
 
-.main-img{
-width: 400px;
-}
+    .main-img{
+    width: 400px;
+    }
 
-.index-center{
-display: flex;
-flex-direction: column;
-align-items: center;
-  margin-bottom: 50px;
+    .index-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      margin-bottom: 50px;
 
-h1{
-  text-align: center;
-  margin-bottom: 30px;
-}
-.carrousel{
-  margin: 50px auto;
-}
-.img-carrousel{
+    h1{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .carrousel{
+      margin: 50px auto;
+    }
+    .img-carrousel{
       max-width: 300px;
     }
 input{
