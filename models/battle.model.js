@@ -1,11 +1,44 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const battleSchema = new Schema({
-    teams: Array,
-    favourites: [{
+    team1: {
+        type: Array,
+        heroes: {
+            type: Array,
+            id: Number,
+            name: String,
+            imgurl: String,
+            powerstats: {
+                intelligence: Number,
+                strenght: Number,
+                speed: Number,
+                durability: Number,
+                power: Number,
+                combat: Number
+            }
+        }
+    },
+    team2: {
+        type: Array,
+        heroes: {
+            type: Array,
+            id: Number,
+            name: String,
+            imgurl: String,
+            powerstats: {
+                intelligence: Number,
+                strenght: Number,
+                speed: Number,
+                durability: Number,
+                power: Number,
+                combat: Number
+            }
+        }
+    },
+    battleCreator: {
         type: Schema.Types.ObjectId,
-        ref: 'Heroes'
-    }],
+        ref: 'User'
+    },
 }, {
     timestamps: {
         createdAt: 'created_at',

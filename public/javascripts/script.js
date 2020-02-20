@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(user.body)
+
   document.getElementById("index-input").addEventListener('keyup', () => {
 
     const input = document.getElementById("index-input").value

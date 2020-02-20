@@ -1,45 +1,19 @@
 <div class="index-center">
-
   <h1>Heroes Battles</h1>
-
-
-
-
-
   </div>
 
-<input type ="text" id="hero1">
-<input type ="text" id="hero2">
-<button id="fight">Fight</button>
-
-
-Nombre 1:{{hero}} Nombre 2: {{team2.name}}
+<button id="fight">Let's Fight!!!</button>
+     {{#each team1}}
+        {{name}}
+        {{/each}}
 
  <div class="input-home">
-    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search"
+    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Choose your teams" aria-label="Search"
       id="index-input">
-    {{!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
-    {{!-- </form> --}}
   </div>
 </div>
 <div class="row characters-container">
-
-  {{!-- <div class="card p-3" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="">
-    <div class=" card-body">
-      <h5 class="card-title"></h5>
-
-      <a href="" class="btn btn-primary">View more</a>
-    </div>
-  </div> --}}
 </div>
-{{!-- <div class="row">
-  {{#each randomHero}}
-  <div class="col-md-2 mt-5">
-    {{>battleCard this}}
-  </div>
-  {{/each}}
-</div> --}}
 
 <script src="/javascripts/battleScript.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

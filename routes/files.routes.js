@@ -25,10 +25,10 @@ router.get('/heroes/details/:id', (req, res) => {
   const heroesPromise = heroesAPI.getHeroDetails(heroId);
 
   const spotifyPromise = Hero.findOne({
-    idBD: {
-      $eq: heroId
-    }
-  })
+      idBD: {
+        $eq: heroId
+      }
+    })
     .then(res => {
       return spotifyApi.searchTracks(res.name)
         .then(function (data) {
@@ -56,8 +56,8 @@ router.post('/api/heroes/details', (req, res) => {
 
 
   Hero.findOne({
-    "idBD": req.body.heroID
-  })
+      "idBD": req.body.heroID
+    })
     .then(response => {
 
       if (req.user.favourites.includes(response._id)) {
@@ -97,27 +97,31 @@ router.get('/battles', (req, res) => {
     }))
 })
 
+router.get('/battles/result', (req, res) => res.render('heroes/battle-result'))
 
-router.post('/battles', (req, res) => {
 
+router.post('/battles/result', (req, res) => {
+  console.log("este es el req bodyyyyy", req.body)
+  // req.body.team1.forEach(el => console.log("hola", el))
+  // req.body.team2.forEach(el => console.log("hola", el))
 
-  const heroBattle = {
+  // const heroBattle = {
 
-  }
+  // }
 
-  Hero.findById(req.body.hero1)
-    .then(hero => {
-      heroBattle.team1 = hero
+  // Hero.findById(req.body.hero1)
+  //   .then(hero => {
+  //     heroBattle.team1 = hero
 
-    })
-    .then(() => Hero.findById(req.body.hero2)
-      .then(hero => {
-        heroBattle.team2 = hero
+  //   })
+  //   .then(() => Hero.findById(req.body.hero2)
+  //     .then(hero => {
+  //       heroBattle.team2 = hero
 
-      }))
-    .then(() => res.render('heroes/heroes-battles', {
-      hero: heroBattle.team1.name
-    }))
+  //     }))
+  //   .then(() => res.render('heroes/heroes-battles', {
+  //     hero: heroBattle.team1.name
+  //   }))
 
 })
 
