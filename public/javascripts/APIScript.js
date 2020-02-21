@@ -35,7 +35,7 @@ async function heroFight(team1, team2) {
     })
 
 
-    let gg = await Promise.all(teamInfo1)
+    let team1Ready = await Promise.all(teamInfo1)
         .then(x => {
             console.log("dentro de x", x)
             // console.log(x[0])
@@ -44,7 +44,7 @@ async function heroFight(team1, team2) {
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
 
-    let hh = await Promise.all(teamInfo2)
+    let team2Ready = await Promise.all(teamInfo2)
         .then(x => {
             console.log("dentro de x", x)
             // console.log(x[0])
@@ -53,15 +53,24 @@ async function heroFight(team1, team2) {
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
 
-    console.log("este es el primer promise all", gg)
-    console.log("este es el segundo promise all", hh)
+
+    // for (i = 0; i < team1Ready.length; i++) {
+    //     document.getElementById(`nameT1P${i}`).value = team1Ready[i].name
+    //     document.getElementById(`imgT1P${i}`).src = team1Ready[i].image.url
+    // }
+
+    // for (i = 0; i < team2Ready.length; i++) {
+    //     document.getElementById(`nameT2P${i}`).value = team2Ready[i].name
+    //     document.getElementById(`imgT2P${i}`).src = team2Ready[i].image.url
+    // }
 
 
-    await axios.post("/battles/result", {
-            team1: gg,
-            team2: hh
-        })
-        .then(w => console.log(w))
+
+    // await axios.post("/battles/result", {
+    //     team1: gg,
+    //     team2: hh
+    // })
+    // .then(w => console.log(w))
 
 
 }

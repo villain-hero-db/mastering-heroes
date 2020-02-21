@@ -134,50 +134,51 @@ router.get("/battles", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.get("/battles/result", (req, res) => res.render("heroes/battle-result"));
+// router.get("/battles/result", (req, res) => res.render("heroes/battle-result"));
 
-router.post('/battles/result', (req, res) => {
-  let BattleID = "5e4ec95f29ab01371a83c5b8"
-  for (i = 0; i < req.body.team1.length; i++) {
+// router.post('/battles/result', (req, res) => {
+//   let BattleID = "5e4ec95f29ab01371a83c5b8"
 
-    const battle1 = {
-      $push: {
-        "team1.heroes": {
+//   for (i = 0; i < req.body.team1.length; i++) {
 
-          id: req.body.team1[i].id,
-          name: req.body.team1[i].name,
-          imgurl: req.body.team1[i].image.url,
-          powerstats: {
-            intelligence: req.body.team1[i].powerstats.intelligence,
-            strenght: req.body.team1[i].powerstats.strenght,
-            speed: req.body.team1[i].powerstats.speed,
-            durability: req.body.team1[i].powerstats.durability,
-            power: req.body.team1[i].powerstats.power,
-            combat: req.body.team1[i].powerstats.combat
-          }
+//     const battle1 = {
+//       $push: {
+//         "team1.heroes": {
 
-        },
-        "team2.heroes": {
+//           id: req.body.team1[i].id,
+//           name: req.body.team1[i].name,
+//           imgurl: req.body.team1[i].image.url,
+//           powerstats: {
+//             intelligence: req.body.team1[i].powerstats.intelligence,
+//             strenght: req.body.team1[i].powerstats.strenght,
+//             speed: req.body.team1[i].powerstats.speed,
+//             durability: req.body.team1[i].powerstats.durability,
+//             power: req.body.team1[i].powerstats.power,
+//             combat: req.body.team1[i].powerstats.combat
+//           }
+//         },
+//         "team2.heroes": {
 
-          id: req.body.team2[i].id,
-          name: req.body.team2[i].name,
-          imgurl: req.body.team2[i].image.url,
-          powerstats: {
-            intelligence: req.body.team2[i].powerstats.intelligence,
-            strenght: req.body.team2[i].powerstats.strenght,
-            speed: req.body.team2[i].powerstats.speed,
-            durability: req.body.team2[i].powerstats.durability,
-            power: req.body.team2[i].powerstats.power,
-            combat: req.body.team2[i].powerstats.combat
-          }
-        }
-      }
-    }
+//           id: req.body.team2[i].id,
+//           name: req.body.team2[i].name,
+//           imgurl: req.body.team2[i].image.url,
+//           powerstats: {
+//             intelligence: req.body.team2[i].powerstats.intelligence,
+//             strenght: req.body.team2[i].powerstats.strenght,
+//             speed: req.body.team2[i].powerstats.speed,
+//             durability: req.body.team2[i].powerstats.durability,
+//             power: req.body.team2[i].powerstats.power,
+//             combat: req.body.team2[i].powerstats.combat
+//           }
+//         }
+//       }
+//     }
 
-    Battle.findByIdAndUpdate(BattleID, battle1)
-      .then(res.redirect('/battles/result'))
-  }
-})
+//     Battle.findByIdAndUpdate(BattleID, battle1)
+//       .then(res.redirect('/battles/result'))
+//   }
+//   res.json(battle1)
+// })
 
 
 
