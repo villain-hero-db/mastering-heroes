@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const battleSchema = new Schema({
     team1: {
-        type: Array,
+
         heroes: {
             type: Array,
             id: Number,
@@ -19,7 +19,7 @@ const battleSchema = new Schema({
         }
     },
     team2: {
-        type: Array,
+
         heroes: {
             type: Array,
             id: Number,

@@ -8,6 +8,7 @@ const axios = require('axios')
 // Requerir modelos
 const Hero = require('../models/heroes.model')
 const User = require('../models/user.model')
+const Battle = require('../models/battle.model')
 
 // Listado de heroes
 router.get('/heroes', (req, res) => {
@@ -153,28 +154,48 @@ router.get('/battles/result', (req, res) => res.render('heroes/battle-result'))
 
 
 router.post('/battles/result', (req, res) => {
-  console.log("este es el req bodyyyyy", req.body)
-  // req.body.team1.forEach(el => console.log("hola", el))
-  // req.body.team2.forEach(el => console.log("hola", el))
+  let BattleID = "5e4ec95f29ab01371a83c5b8"
+  for (i = 0; i < req.body.team1.length; i++) {
 
-  // const heroBattle = {
+    const battle1 = {
+      $push: {
+        "team1.heroes": {
 
-  // }
+          id: req.body.team1[i].id,
+          name: req.body.team1[i].name,
+          imgurl: req.body.team1[i].image.url,
+          powerstats: {
+            intelligence: req.body.team1[i].powerstats.intelligence,
+            strenght: req.body.team1[i].powerstats.strenght,
+            speed: req.body.team1[i].powerstats.speed,
+            durability: req.body.team1[i].powerstats.durability,
+            power: req.body.team1[i].powerstats.power,
+            combat: req.body.team1[i].powerstats.combat
+          }
 
-  // Hero.findById(req.body.hero1)
-  //   .then(hero => {
-  //     heroBattle.team1 = hero
+        },
+        "team2.heroes": {
 
-  //   })
-  //   .then(() => Hero.findById(req.body.hero2)
-  //     .then(hero => {
-  //       heroBattle.team2 = hero
+          id: req.body.team2[i].id,
+          name: req.body.team2[i].name,
+          imgurl: req.body.team2[i].image.url,
+          powerstats: {
+            intelligence: req.body.team2[i].powerstats.intelligence,
+            strenght: req.body.team2[i].powerstats.strenght,
+            speed: req.body.team2[i].powerstats.speed,
+            durability: req.body.team2[i].powerstats.durability,
+            power: req.body.team2[i].powerstats.power,
+            combat: req.body.team2[i].powerstats.combat
+          }
+        }
+      }
+    }
 
-  //     }))
-  //   .then(() => res.render('heroes/heroes-battles', {
-  //     hero: heroBattle.team1.name
-  //   }))
-
+    Battle.findByIdAndUpdate(BattleID, battle1)
+      .then(res.redirect('/battles/result'))
+  }
 })
+
+
 
 module.exports = router;
