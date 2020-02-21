@@ -39,17 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-
-    document.querySelector('equipo1').addEventListener('click', function (event) {
-        console.log('hola')
-        let input = document.getElementById('equipo1').value
-        console.log(input)
-        pushHeroes1(input)
-
-    })
-
-
-
 }, false);
 
 const team1 = []
@@ -58,18 +47,20 @@ const team2 = []
 
 
 function pushHeroes1(id) {
-    document.querySelector('equipo1').addEventListener('click', function (event) {
-        console.log('hola')
-        let input = document.getElementById('equipo1').value
-        console.log(input)
-        pushHeroes1(input)
 
-    })
-    console.log(allCharacters)
+    actualHero = allCharacters.map(function (e) {
+        return e.idBD;
+    }).indexOf(id);
+
+
     if (team1.includes(id)) {
         alert("Ya esta en el team 1")
     } else {
+        console.log(allCharacters[actualHero].image)
         team1.push(id)
+        let pos = team1.length - 1
+        console.log(pos)
+        document.getElementById(`imgT1P${pos}`).src = allCharacters[actualHero].image
         console.log(team1)
 
     }
@@ -82,7 +73,7 @@ function pushHeroes2(id) {
     } else {
         team2.push(id)
         let pos = team2.length - 1
-        document.getElementById(`nameT1P${pos}`).value = id
+        document.getElementById(`nameT2P${pos}`).innerHTML = id
         console.log(team2)
     }
 }
