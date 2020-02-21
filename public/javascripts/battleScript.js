@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ((input.length > 1)) {
             axios.post("/api", {
-                input
-            })
+                    input
+                })
                 .then(response => {
 
                     allCharacters = response.data;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img class="card-img-index" src="${element.image}" alt="${element.name}"></a>
                         <h6 class="card-title mt-2">${element.name}</h6>
                         </div>
-                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.name})" value="${element.idBD}">Team 1</button>
+                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.idBD})" value="${element.idBD}">Team 1</button>
                         <button class="btn btn-dark w-100" onclick="pushHeroes2(${element.idBD})">Team 2</button>
                         </div>`
 
@@ -56,10 +56,8 @@ function pushHeroes1(id) {
     if (team1.includes(id)) {
         alert("Ya esta en el team 1")
     } else {
-        console.log(allCharacters[actualHero].image)
         team1.push(id)
         let pos = team1.length - 1
-        console.log(pos)
         document.getElementById(`imgT1P${pos}`).src = allCharacters[actualHero].image
         console.log(team1)
 
@@ -82,7 +80,6 @@ function pushHeroes2(id) {
 
 
 document.getElementById('fight').addEventListener('click', function (event) {
-    console.log("scriptJS")
     event.preventDefault();
     heroFight(team1, team2)
 
