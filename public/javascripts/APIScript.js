@@ -1,3 +1,7 @@
+let t1power = 0
+let t2power = 0
+
+
 function addtoFavourites(heroID) {
     console.log("Estamos en APISCRIPT", heroID)
 
@@ -37,36 +41,48 @@ async function heroFight(team1, team2) {
     let team1Ready = await Promise.all(teamInfo1)
         .then(x => {
             console.log("dentro de x", x)
-            // console.log(x[0])
+
             return x
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
     let team2Ready = await Promise.all(teamInfo2)
         .then(x => {
             console.log("dentro de x", x)
-            // console.log(x[0])
             return x
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
 
 
-    // for (i = 0; i < team1Ready.length; i++) {
-    //     document.getElementById(`nameT1P${i}`).value = team1Ready[i].name
-    //     document.getElementById(`imgT1P${i}`).src = team1Ready[i].image.url
-    // }
+    for (i = 0; i < team1Ready.length; i++) {
 
-    // for (i = 0; i < team2Ready.length; i++) {
-    //     document.getElementById(`nameT2P${i}`).value = team2Ready[i].name
-    //     document.getElementById(`imgT2P${i}`).src = team2Ready[i].image.url
-    // }
+        if (team1Ready[i].powerstats.power === "null") {
+            team1Ready[i].powerstats.power = 0
+            t1power += +team1Ready[i].powerstats.power;
+        } else t1power += +team1Ready[i].powerstats.power
 
 
+    }
 
-    // await axios.post("/battles/result", {
-    //     team1: gg,
-    //     team2: hh
-    // })
-    // .then(w => console.log(w))
+    for (i = 0; i < team2Ready.length; i++) {
+
+        if (team2Ready[i].powerstats.power === "null") {
+            team2Ready[i].powerstats.power = 0
+            t2power += +team2Ready[i].powerstats.power;
+        } else t2power += +team2Ready[i].powerstats.power
 
 
+    }
+
+    console.log(t1power)
+    console.log(t2power)
+
+    if (t1power > t2power) {
+
+        document.getElementById('btl-team1').classList = "win dsp-on"
+        document.getElementById('btl-team2').classList = "lose dsp-on"
+    } else if (t1power < t2power) {
+
+        document.getElementById('btl-team1').classList = "lose dsp-on"
+        document.getElementById('btl-team2').classList = "win dsp-on"
+    }
 }

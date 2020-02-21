@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ((input.length > 1)) {
             axios.post("/api", {
-                input
-            })
+                    input
+                })
                 .then(response => {
 
                     allCharacters = response.data;
@@ -76,7 +76,6 @@ function pushHeroes2(id) {
 
 
 document.getElementById('fight').addEventListener('click', function (event) {
-    console.log("scriptJS")
     event.preventDefault();
     heroFight(team1, team2)
 
