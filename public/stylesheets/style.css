@@ -4,7 +4,7 @@ body {
   body h2 {
     margin-bottom: 20px; }
   body button {
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
   body label {
     font-size: 1rem; }
   body container {
@@ -16,8 +16,24 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     border: 1px solid black; }
+  body .win {
+    text-align: center;
+    font-size: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+    background-color: greenyellow; }
+    body .win h4 {
+      margin: 0; }
+  body .lose {
+    text-align: center;
+    font-size: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+    background-color: tomato; }
+    body .lose h4 {
+      margin: 0; }
   body .selected-hero {
-    min-height: 100px; }
+    min-height: 50px; }
 
 .btn-change {
   transition: 0.4s; }
@@ -39,6 +55,9 @@ nav {
   .navbar img {
     height: 50px; }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: white; }
+
 .avatar {
   width: 100px;
   border-radius: 50%; }
@@ -59,6 +78,15 @@ nav {
 .main-img {
   width: 400px; }
 
+.battle-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; }
+  .battle-center h1 {
+    text-align: center;
+    margin-bottom: 30px; }
+
 .index-center {
   display: flex;
   flex-direction: column;
@@ -66,7 +94,8 @@ nav {
   margin-bottom: 50px; }
   .index-center h1 {
     text-align: center;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    text-transform: uppercase; }
   .index-center .carrousel {
     margin: 50px auto; }
   .index-center .img-carrousel {

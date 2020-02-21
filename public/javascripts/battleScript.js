@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img class="card-img-index" src="${element.image}" alt="${element.name}"></a>
                         <h6 class="card-title mt-2">${element.name}</h6>
                         </div>
-                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.name})" value="${element.idBD}">Team 1</button>
+                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.idBD})">Team 1</button>
                         <button class="btn btn-dark w-100" onclick="pushHeroes2(${element.idBD})">Team 2</button>
                         </div>`
 
@@ -48,34 +48,28 @@ const team2 = []
 
 function pushHeroes1(id) {
 
-    actualHero = allCharacters.map(function (e) {
-        return e.idBD;
-    }).indexOf(id);
-
+    actualHero = allCharacters.map(e => e.idBD).indexOf(id);
 
     if (team1.includes(id)) {
-        alert("Ya esta en el team 1")
+        alert("Already add to team 1")
     } else {
-        console.log(allCharacters[actualHero].image)
         team1.push(id)
         let pos = team1.length - 1
-        console.log(pos)
-        document.getElementById(`imgT1P${pos}`).src = allCharacters[actualHero].image
-        console.log(team1)
-
-
+        document.getElementById(`nameT1P${pos}`).innerHTML = `<img class="card-img-index" src ="${allCharacters[actualHero].image}" alt="${allCharacters[actualHero].name}"></a>
+                <h6 class="card-title mt-2">${allCharacters[actualHero].name}</h6>`
     }
 }
 
 function pushHeroes2(id) {
+    actualHero = allCharacters.map(e => e.idBD).indexOf(id);
 
     if (team2.includes(id)) {
-        alert("Ya esta en el team 2")
+        alert("Already add to team 2")
     } else {
         team2.push(id)
         let pos = team2.length - 1
-        document.getElementById(`nameT2P${pos}`).innerHTML = id
-        console.log(team2)
+        document.getElementById(`nameT2P${pos}`).innerHTML = `<img class="card-img-index" src ="${allCharacters[actualHero].image}" alt="${allCharacters[actualHero].name}"></a>
+                <h6 class="card-title mt-2">${allCharacters[actualHero].name}</h6>`
     }
 }
 

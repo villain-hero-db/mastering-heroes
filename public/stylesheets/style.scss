@@ -5,7 +5,7 @@ body {
     margin-bottom: 20px;
   }
   button {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   label {
     font-size: 1rem;
@@ -22,8 +22,28 @@ body {
     text-transform: uppercase;
     border: 1px solid black;
   }
+  .win{
+    text-align: center;
+    font-size: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+    background-color: greenyellow;
+    h4{
+      margin: 0;
+    }
+  }
+  .lose{
+    text-align: center;
+    font-size: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+    background-color: tomato;
+    h4{
+      margin: 0;
+    }
+  }
 .selected-hero{
-  min-height: 100px;
+  min-height: 50px;
 }
 }
 .btn-change {
@@ -47,6 +67,9 @@ nav {
   img {
     height: 50px;
   }
+}
+.navbar-dark .navbar-nav .nav-link{
+  color: white;
 }
 
 .avatar {
@@ -72,6 +95,16 @@ nav {
 .main-img {
   width: 400px;
 }
+.battle-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
 
 .index-center {
   display: flex;
@@ -82,6 +115,7 @@ nav {
   h1 {
     text-align: center;
     margin-bottom: 30px;
+    text-transform: uppercase;
   }
   .carrousel {
     margin: 50px auto;
@@ -195,4 +229,8 @@ footer {
 
 .dsp {
   display: none;
+}
+
+.dsp-on{
+  display: block;
 }
