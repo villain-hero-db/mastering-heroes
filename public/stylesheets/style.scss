@@ -1,152 +1,150 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f7;
   h2 {
     margin-bottom: 20px;
   }
-
-  button{
+  button {
     margin-bottom: 20px;
   }
-  label{
+  label {
     font-size: 1rem;
   }
+  container { 
+    background-image: url(/public/images/logo-mastering-heroes.png);
+  }
 }
-.btn-change{
-  transition: .4s;
+.btn-change {
+  transition: 0.4s;
 }
-.btn-change:hover{
-    transform: scale(1.1);
+.btn-change:hover {
+  transform: scale(1.1);
 }
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
-
-nav{
+nav {
   margin-bottom: 30px;
 }
-.navbar{
+.navbar {
   padding: 15px 40px;
   background-color: #68c78e;
-  border-bottom: 4px solid #fdd100;;
-  img{ height: 50px;
+  border-bottom: 4px solid #fdd100;
+  img {
+    height: 50px;
   }
-  }
+}
 
-.avatar{
+.avatar {
   width: 100px;
   border-radius: 50%;
 }
 
-.file-upload{
+.file-upload {
   position: absolute;
   padding: 50px 20px;
   background-color: rgba(10, 10, 10, 0.7);
   z-index: 100;
   color: white;
   border-radius: 4px;
-  h6{
+  h6 {
     margin-bottom: 20px;
   }
-  
 }
-.visibility{
-    visibility: hidden;
+.visibility {
+  visibility: hidden;
+}
+
+.main-img {
+  width: 400px;
+}
+
+.index-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
   }
-
-    .main-img{
-    width: 400px;
-    }
-
-    .index-center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-      margin-bottom: 50px;
-
-    h1{
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .carrousel{
-      margin: 50px auto;
-    }
-    .img-carrousel{
-      max-width: 300px;
-    }
-input{
-  max-width: 400px;
-  border: 2px solid #68c78e;
-  
-  
-}
-.input-home{
-  transition: 0.5s;
-  width: 350px;
-
-}
-.input-home:hover{
-    transform: scale(1.1)
+  .carrousel {
+    margin: 50px auto;
+  }
+  .img-carrousel {
+    max-width: 300px;
+  }
+  input {
+    max-width: 400px;
+    border: 2px solid #68c78e;
+  }
+  .input-home {
+    transition: 0.5s;
+    width: 350px;
+  }
+  .input-home:hover {
+    transform: scale(1.1);
   }
 }
 
-.card-index h6{
+.card-index h6 {
   text-align: center;
 }
-.card-img-top{
+.card-img-top {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
   width: 100%;
 }
-.card-img-index{
+.card-img-index {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
   transition: 0.5s;
 }
-.card-img-index:hover{
+.card-img-index:hover {
   transform: scale(1.1);
 }
-.canvas-size{
+.canvas-size {
   width: 500px;
 }
 
-.fav-btn{
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    .btn{
-      text-transform: uppercase ;
-      background-color: #fdd100;
-    }
-    #favourite{
-      line-height: 0;
-    }
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  .btn {
+    text-transform: uppercase;
+    background-color: #fdd100;
+  }
+  #favourite {
+    line-height: 0;
+  }
 }
 
-.spotify-section{
+.spotify-section {
   margin: 50px 0;
-  .spotify-img{
-  width: 150px;
-}
-audio{
-  margin: 30px 0;
-  width: 150px;
-}
+  .spotify-img {
+    width: 150px;
+  }
+  audio {
+    margin: 30px 0;
+    width: 150px;
+  }
 }
 
-footer{
+footer {
   width: 100%;
   min-height: 150px;
-  background-color:#68c78e ;
+  background-color: #68c78e;
   padding: 30px 0;
   margin-top: 50px;
-  li{
+  li {
     list-style: none;
-    
   }
-  .footer-title{
+  .footer-title {
     text-transform: uppercase;
     text-decoration: underline;
     font-size: 1.2rem;
@@ -155,13 +153,10 @@ footer{
   }
 }
 
-.hero-img-pf{
+.hero-img-pf {
   width: 100px;
 }
 
-
-.dsp{
+.dsp {
   display: none;
 }
-
-// NAV SEARCH

@@ -1,13 +1,31 @@
 <h2>Mastering Hero list</h2>
-<div class="row mb-5">
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="A-B"></div>
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="C-E"></div>
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="F-I"></div>
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="J-M"></div>
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="N-S"></div>
-  <div class="col-md-2"><input class="btn btn-primary" id="sort" type="button" value="T-V"></div>
 
-</div>
+<select name="select" id="sort" class="custom-select-lg mb-5">
+  <option selected>Sort alphabetically</option>
+  <option value="A-B">A-B</option>
+  <option value="C-E">C-E</option>
+  <option value="F-I">F-I</option>
+  <option value="J-M">J-M</option>
+  <option value="N-S">N-S</option>
+  <option value="T-V">T-V</option>
+  <option value="W-Z">W-Z</option>
+</select>
+
+{{!-- <div class="row mb-5">
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="A-B"></div>
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="C-E"></div>
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="F-I"></div>
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="J-M"></div>
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="N-S"></div>
+  <div class="col-md-2 d-flex justify-content-around"><input class="btn btn-primary" id="sort" type="button"
+      value="T-V"></div>
+
+</div> --}}
 
 <div class="row sort-container">
 
@@ -17,7 +35,7 @@
 
   {{#each heroes}}
 
-  <div class="col-md-3">
+  <div class="col-md-3 mb-4">
     {{>heroCard this}}
   </div>
 

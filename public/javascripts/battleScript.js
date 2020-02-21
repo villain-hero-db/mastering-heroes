@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ((input.length > 1)) {
             axios.post("/api", {
-                    input
-                })
+                input
+            })
                 .then(response => {
 
                     let allCharacters = response.data;

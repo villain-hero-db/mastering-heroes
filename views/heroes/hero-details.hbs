@@ -7,15 +7,8 @@
     </figure>
     <div class="fav-btn">
       <form action="/api/heroes/details/" method="POST" name="{{heroes.id}}" id="favourite" class="btn">
-        <i id="fav-on" class="material-icons {{fav.x}}">
-          favorite
-        </i>
-
-        <i id="fav-off" class="material-icons {{fav.y}}">
-          favorite_border
-        </i>
-        {{!-- <input type="submit" name="{{heroes.id}}" value=""> --}}
-
+        <i id="fav-on" class="material-icons {{fav.x}}">favorite</i>
+        <i id="fav-off" class="material-icons {{fav.y}}">favorite_border</i>
       </form>
 
     </div>
@@ -76,16 +69,14 @@
 
 <script src="/javascripts/heroDetailsScript.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
 <script>
-
-
-
   const drawBarChart = (id) => {
 
     new Chart(id, {
       type: 'polarArea',
       data: {
-        labels: ['Strength', 'Speed', 'Durability', 'Power', 'Combat'],
+        labels: ['Strength', 'Speed', 'Durability', 'Combat', 'Power'],
         datasets: [{
           data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
         ],
@@ -108,8 +99,6 @@
   }
 
   drawBarChart('q1')
-
-
 </script>
 
 <script src="/javascripts/script.js"></script>
