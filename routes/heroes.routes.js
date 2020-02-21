@@ -44,7 +44,12 @@ router.get("/heroes/details/:id", (req, res, next) => {
     .catch(err => next(err));
 
   const favPromise = Hero.findOne({ idBD: { $eq: heroId } })
-    .then(data => req.user.favourites.includes(data._id) ? { x: "", y: "dsp" } : { x: "dsp", y: "" })
+    .then(data => {
+      if (req.user) {
+        return req.user.favourites.includes(data._id) ? { x: "", y: "dsp" } : { x: "dsp", y: "" }
+      }
+      else { return { x: "", y: "dsp" } }
+    })
     .catch(err => next(err));
 
   Promise.all([heroesPromise, spotifyPromise, moviesPromise, favPromise])
