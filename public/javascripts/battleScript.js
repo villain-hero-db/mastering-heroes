@@ -1,23 +1,21 @@
 let allCharacters
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('IronGenerator JS imported successfully!');
     document.getElementById("index-input").addEventListener('keyup', () => {
 
         const input = document.getElementById("index-input").value
 
         if ((input.length > 1)) {
             axios.post("/api", {
-                    input
-                })
+                input
+            })
                 .then(response => {
 
                     allCharacters = response.data;
-                    console.log(allCharacters)
                     document.querySelector('.characters-container').innerHTML = ""
 
                     allCharacters.forEach(element => {
                         const card = `
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6">
                         <div class="card-index p-1">
                         <div class="h-200">
                         <a href="/heroes/details/{{idBD}}">

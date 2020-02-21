@@ -28,6 +28,7 @@ body {
     padding: 10px 0;
     text-transform: uppercase;
     background-color: greenyellow;
+    border-radius: 5px;
     h4{
       margin: 0;
     }
@@ -214,6 +215,7 @@ footer {
   background-color: #68c78e;
   padding: 30px 0;
   margin-top: 50px;
+  clear: both;
 
   .footer-title {
     text-transform: uppercase;
@@ -229,8 +231,4 @@ footer {
 
 .dsp {
   display: none;
-}
-
-.dsp-on{
-  display: block;
 }

@@ -38,7 +38,7 @@
   <div class="row">
 
     {{#each spotify}}
-    <div class="col-md-3 d-flex flex-column align-items-center">
+    <div class="col-md-3 col-6 d-flex flex-column align-items-center">
 
       <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
           alt="{{name}}"></a>
@@ -61,7 +61,7 @@
   <div class="row">
 
     {{#each movies}}
-    <div class="col-md-3">
+    <div class="col-md-3 col-6">
       <div class="d-flex flex-column align-items-center h-300">
         <img class=" movies-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
 
@@ -87,7 +87,7 @@
       data: {
         labels: ['Strength', 'Speed', 'Durability', 'Combat', 'Power'],
         datasets: [{
-          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
+          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, { { heroes.powerstats.power } }
         ],
   borderColor: 'white',
     borderWidth: 2,

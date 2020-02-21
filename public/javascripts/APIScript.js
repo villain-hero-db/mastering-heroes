@@ -6,8 +6,8 @@ function addtoFavourites(heroID) {
     console.log("Estamos en APISCRIPT", heroID)
 
     return axios.post("/api/heroes/details", {
-            heroID
-        })
+        heroID
+    })
         .then(response => response)
         .catch(error => console.log('Oh No! Error is: ', error))
 
@@ -73,16 +73,18 @@ async function heroFight(team1, team2) {
 
     }
 
-    console.log(t1power)
-    console.log(t2power)
 
     if (t1power > t2power) {
+        console.log('win 1')
+        setTimeout
 
-        document.getElementById('btl-team1').classList = "win dsp-on"
-        document.getElementById('btl-team2').classList = "lose dsp-on"
+        document.getElementById('btl-team1').innerHTML = `<div class="win"><h4>Team 1 win</h4></div>`
+        document.getElementById('btl-team2').innerHTML = `<div class="lose"><h4>Team 1 lose</h4></div>`
+
     } else if (t1power < t2power) {
+        console.log('win 2')
 
-        document.getElementById('btl-team1').classList = "lose dsp-on"
-        document.getElementById('btl-team2').classList = "win dsp-on"
+        document.getElementById('btl-team1').innerHTML = `<div class="lose"><h4>Team 1 lose</h4></div>`
+        document.getElementById('btl-team2').innerHTML = `<div class="win"><h4>Team 1 win</h4></div>`
     }
 }
