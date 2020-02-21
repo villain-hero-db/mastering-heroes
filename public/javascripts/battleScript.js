@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ((input.length > 1)) {
             axios.post("/api", {
-                    input
-                })
+                input
+            })
                 .then(response => {
 
                     allCharacters = response.data;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img class="card-img-index" src="${element.image}" alt="${element.name}"></a>
                         <h6 class="card-title mt-2">${element.name}</h6>
                         </div>
-                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.idBD})">Team 1</button>
+                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.name})" value="${element.idBD}">Team 1</button>
                         <button class="btn btn-dark w-100" onclick="pushHeroes2(${element.idBD})">Team 2</button>
                         </div>`
 
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
-    document.querySelector('equipo1').addEventListener('click', function (event) {
-        console.log('hola')
-        let input = document.getElementById('equipo1').value
-        console.log(input)
-        pushHeroes1(input)
+    // document.querySelector('equipo1').onclick = event => {
+    //     console.log('hola hola')
+    //     let input = document.getElementById('equipo1').value
+    //     console.log(input)
+    //     pushHeroes1(input)
 
-    })
+    // }
 
 
 
@@ -58,19 +58,18 @@ const team2 = []
 
 
 function pushHeroes1(id) {
-    document.querySelector('equipo1').addEventListener('click', function (event) {
-        console.log('hola')
-        let input = document.getElementById('equipo1').value
-        console.log(input)
-        pushHeroes1(input)
 
-    })
-    console.log(allCharacters)
-    if (team1.includes(id)) {
+    let input = id
+
+
+    console.log('ESTOY AQUI', input)
+
+    if (team1.includes(input)) {
         alert("Ya esta en el team 1")
     } else {
         team1.push(id)
         console.log(team1)
+        
 
     }
 }
