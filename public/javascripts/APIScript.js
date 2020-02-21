@@ -76,15 +76,17 @@ async function heroFight(team1, team2) {
 
     if (t1power > t2power) {
         console.log('win 1')
-        setTimeout
 
         document.getElementById('btl-team1').innerHTML = `<div class="win"><h4>Team 1 win</h4></div>`
-        document.getElementById('btl-team2').innerHTML = `<div class="lose"><h4>Team 1 lose</h4></div>`
+        document.getElementById('btl-team2').innerHTML = `<div class="lose"><h4>Team 2 lose</h4></div>`
 
     } else if (t1power < t2power) {
         console.log('win 2')
 
         document.getElementById('btl-team1').innerHTML = `<div class="lose"><h4>Team 1 lose</h4></div>`
-        document.getElementById('btl-team2').innerHTML = `<div class="win"><h4>Team 1 win</h4></div>`
+        document.getElementById('btl-team2').innerHTML = `<div class="win"><h4>Team 2 win</h4></div>`
+    } else {
+        document.getElementById('btl-team1').innerHTML = `<div class="lose"><h4>Draw</h4></div>`
+        document.getElementById('btl-team2').innerHTML = `<div class="lose"><h4>Draw</h4></div>`
     }
 }

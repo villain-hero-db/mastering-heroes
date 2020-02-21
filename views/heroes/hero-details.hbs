@@ -5,6 +5,7 @@
     <figure>
       <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
     </figure>
+
     <div class="fav-btn">
       <form action="/api/heroes/details/" method="POST" name="{{heroes.id}}" id="favourite" class="btn">
         <i id="fav-on" class="material-icons {{fav.x}}">favorite</i>
@@ -87,7 +88,7 @@
       data: {
         labels: ['Strength', 'Speed', 'Durability', 'Combat', 'Power'],
         datasets: [{
-          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
+          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, { { heroes.powerstats.power } }
         ],
   borderColor: 'white',
     borderWidth: 2,
