@@ -12,8 +12,6 @@ const uploadCloud = require("../configs/cloudinary.config");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
-
 router.get("/profile", ensureLoggedIn("/login"), (req, res) => {
   User.findById(req.user.id)
     .populate('favourites')
@@ -21,41 +19,25 @@ router.get("/profile", ensureLoggedIn("/login"), (req, res) => {
 });
 
 //Add picture to profile
-router.post(
-  "/profile",
-  uploadCloud.single("phototoupload"),
-  (req, res, next) => {
-    console.log(
-      "Y esto es lo que hace multer cuando colabora con Cloudinary",
-      req.file
-    );
-
-    User.findByIdAndUpdate(req.user._id, {
-      avatarPath: req.file.secure_url,
-    })
-      .then(() => res.redirect("/profile"))
-      .catch(err => next(err));
-  }
-);
-
-router.get("/login", ensureLoggedOut(), (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+router.post("/profile", uploadCloud.single("phototoupload"), (req, res, next) => {
+  User.findByIdAndUpdate(req.user._id, { avatarPath: req.file.secure_url })
+    .then(() => res.redirect("/profile"))
+    .catch(err => next(err));
 });
 
-router.post("/login",
-  ensureLoggedOut(),
-  passport.authenticate("local", {
-    successRedirect: "/profile",
-    failureRedirect: "/login",
-    failureFlash: true,
-    passReqToCallback: true
-  }));
+router.get("/login", ensureLoggedOut(), (req, res, next) =>
+  res.render("auth/login", { "message": req.flash("error") }));
 
-router.get("/signup", ensureLoggedOut(), (req, res) => {
-  res.render("auth/signup", {
-    message: req.flash("error")
-  });
-});
+router.post("/login", ensureLoggedOut(), passport.authenticate("local", {
+  successRedirect: "/profile",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
+
+router.get("/signup", ensureLoggedOut(), (req, res) =>
+  res.render("auth/signup", { message: req.flash("error") }));
+
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
@@ -89,10 +71,7 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
-});
+router.get("/logout", (req, res) => { req.logout(); res.redirect("/") });
 
 
 module.exports = router;

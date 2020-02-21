@@ -1,20 +1,23 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f7; }
   body h2 {
     margin-bottom: 20px; }
   body button {
     margin-bottom: 20px; }
   body label {
     font-size: 1rem; }
+  body container {
+    background-image: url(/public/images/logo-mastering-heroes.png); }
 
 .btn-change {
-  transition: .4s; }
+  transition: 0.4s; }
 
 .btn-change:hover {
   transform: scale(1.1); }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
 
 nav {
   margin-bottom: 30px; }
