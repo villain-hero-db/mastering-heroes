@@ -18,8 +18,11 @@
     <p><strong>Place of birth: </strong>{{heroes.biography.place-of-birth}}</p>
     <p><strong>Full name: </strong>{{heroes.biography.full-name}}</p>
     <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
+    <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
+    <p><strong>Aliases: </strong>{{heroes.biography.aliases}}</p>
+    <p><strong>Alignment: </strong>{{heroes.biography.alignment}}</p>
 
-    <section class="canvas-size">
+    <section class="canvas-size my-5">
       <figure>
         <canvas id="q1"></canvas>
       </figure>
@@ -30,10 +33,12 @@
 
 
 <section class="spotify-section">
+  <h4 class="text-center">Related songs</h4>
+
   <div class="row">
 
     {{#each spotify}}
-    <div class="col-md-3">
+    <div class="col-md-3 d-flex flex-column align-items-center">
 
       <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
           alt="{{name}}"></a>
@@ -51,13 +56,17 @@
 
 </section>
 
-<section class="spotify-section">
+<section class="movies-section">
+  <h4 class="text-center">Related movies</h4>
   <div class="row">
 
     {{#each movies}}
     <div class="col-md-3">
-      <img class="spotify-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
-      <h4>{{original_title}}</h4>
+      <div class="d-flex flex-column align-items-center h-300">
+        <img class=" movies-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
+
+        <h6 class="mt-4">{{original_title}}</h6>
+      </div>
       <p><strong>NOTE: </strong>{{vote_average}}</p>
       <p>{{overview}}</p>
     </div>

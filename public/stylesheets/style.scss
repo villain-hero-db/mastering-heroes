@@ -13,12 +13,26 @@ body {
   container { 
     background-image: url(/public/images/logo-mastering-heroes.png);
   }
+  .h-200{
+    height: 200px;
+  }
+  #fight{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid black;
+  }
+.selected-hero{
+  min-height: 100px;
+}
 }
 .btn-change {
   transition: 0.4s;
+  
 }
 .btn-change:hover {
   transform: scale(1.1);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 a {
   color: #00b7ff;
@@ -85,6 +99,7 @@ nav {
   }
   .input-home:hover {
     transform: scale(1.1);
+
   }
 }
 
@@ -92,7 +107,7 @@ nav {
   text-align: center;
 }
 .card-img-top {
-  height: 300px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   width: 100%;
@@ -125,9 +140,14 @@ nav {
 }
 
 .spotify-section {
-  margin: 50px 0;
+  margin: 30px 0;
   .spotify-img {
     width: 150px;
+  }
+  h4{
+    text-transform: uppercase;
+        margin-bottom: 30px;
+
   }
   audio {
     margin: 30px 0;
@@ -135,19 +155,35 @@ nav {
   }
 }
 
+.movies-section{
+  margin: 30px 0;
+  .h-300{
+    height: 300px;
+  }
+  .movies-img {
+    width: 150px;
+  }
+   h4{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  h6{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+}
+
 footer {
   width: 100%;
-  min-height: 150px;
+  min-height: 100px;
   background-color: #68c78e;
   padding: 30px 0;
   margin-top: 50px;
-  li {
-    list-style: none;
-  }
+
   .footer-title {
     text-transform: uppercase;
-    text-decoration: underline;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
     font-weight: bold;
   }

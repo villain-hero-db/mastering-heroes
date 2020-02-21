@@ -29,7 +29,9 @@ require("./passport")(app);
 // Routes
 app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/auth.routes"));
-app.use("/", require("./routes/files.routes"));
+app.use("/", require("./routes/heroes.routes"));
+app.use("/", require("./routes/battles.routes"));
+
 
 
 
