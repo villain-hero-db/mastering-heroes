@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.querySelector('.characters-container').innerHTML = ""
 
                     allCharacters.forEach(element => {
-                        const card =
-                            `<div class="col-md-3">
-            <div class="card p-3" style="width: 18rem;">
-              <img class="card-img-top" src="${element.image}" alt="${element.name}">
-                <div class=" card-body">
-                  <h5 class="card-title">${element.name}</h5>
-                        <button class="equipo1" onclick="pushHeroes1(${element.idBD})" value=${element.idBD}>Añadir al equipo 1</button>
-                        <button class="equipo2" onclick="pushHeroes2(${element.idBD})">Añadir al equipo 2</button>
-                </div>
-            </div></div>`
+                        const card = `
+                        <div class="col-md-3">
+                        <div class="card-index p-1">
+                        <div class="h-200">
+                        <a href="/heroes/details/{{idBD}}">
+                        <img class="card-img-index" src="${element.image}" alt="${element.name}"></a>
+                        <h6 class="card-title mt-2">${element.name}</h6>
+                        </div>
+                        <button class="btn btn-info w-100" onclick="pushHeroes1(${element.idBD})">Team 1</button>
+                        <button class="btn btn-dark w-100" onclick="pushHeroes2(${element.idBD})">Team 2</button>
+                        </div>`
+
 
                         document.querySelector('.characters-container').innerHTML += card
 

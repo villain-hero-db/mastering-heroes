@@ -34,22 +34,18 @@ async function heroFight(team1, team2) {
 
     })
 
-
     let team1Ready = await Promise.all(teamInfo1)
         .then(x => {
             console.log("dentro de x", x)
             // console.log(x[0])
             return x
-
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
-
     let team2Ready = await Promise.all(teamInfo2)
         .then(x => {
             console.log("dentro de x", x)
             // console.log(x[0])
             return x
-
         })
         .catch(err => console.log("Error consultando el héroe en la BBDD: ", err))
 
