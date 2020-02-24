@@ -54,10 +54,12 @@ router.get("/heroes/details/:id", (req, res, next) => {
 
   Promise.all([heroesPromise, spotifyPromise, moviesPromise, favPromise])
     .then(results => {
+      const spotify = results[1] ? results[1].splice(0, 4) : results[1] = [""]
+      const movies = results[2] ? results[2].splice(0, 4) : results[2] = [""]
       res.render("heroes/hero-details", {
         heroes: results[0],
-        spotify: results[1].splice(0, 4),
-        movies: results[2].splice(0, 4),
+        spotify: spotify,
+        movies: movies,
         fav: results[3]
       });
     })
