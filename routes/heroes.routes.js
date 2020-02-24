@@ -72,6 +72,7 @@ router.post("/api/heroes/details", (req, res, next) => {
     idBD: req.body.heroID
   })
     .then(response => {
+
       if (req.user.favourites.includes(response._id)) {
         const userFavDelete = { $pull: { favourites: response._id } };
         User.findByIdAndUpdate(req.user.id, userFavDelete)

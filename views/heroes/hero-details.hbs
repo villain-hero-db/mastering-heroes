@@ -5,110 +5,117 @@
     <figure>
       <img class="main-img" src="{{heroes.image.url}}" alt="{{heroes.name}}">
     </figure>
-
+    {{#if user}}
     <div class="fav-btn">
       <form action="/api/heroes/details/" method="POST" name="{{heroes.id}}" id="favourite" class="btn">
         <i id="fav-on" class="material-icons {{fav.x}}">favorite</i>
         <i id="fav-off" class="material-icons {{fav.y}}">favorite_border</i>
       </form>
+      {{/if}}
+      {{#unless user}}
+      <div class="fav-btn">
+        <a href="/login" class="btn">
 
-    </div>
-  </div>
-  <div class="col-lg-7">
-    <h1>{{heroes.name}}</h1>
-    <p><strong>Place of birth: </strong>{{heroes.biography.place-of-birth}}</p>
-    <p><strong>Full name: </strong>{{heroes.biography.full-name}}</p>
-    <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
-    <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
-    <p><strong>Aliases: </strong>{{heroes.biography.aliases}}</p>
-    <p><strong>Alignment: </strong>{{heroes.biography.alignment}}</p>
-
-    <section class="canvas-size my-5">
-      <figure>
-        <canvas id="q1"></canvas>
-      </figure>
-    </section>
-
-  </div>
-</div>
-
-
-<section class="spotify-section">
-  <h4 class="text-center">Related songs</h4>
-
-  <div class="row">
-
-    {{#each spotify}}
-    <div class="col-md-3 col-6 d-flex flex-column align-items-center">
-
-      <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
-          alt="{{name}}"></a>
-
-      <figure>
-        <audio controls src="{{preview_url}}">
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
-      </figure>
-    </div>
-
-    {{/each}}
-  </div>
-
-</section>
-
-<section class="movies-section">
-  <h4 class="text-center">Related movies</h4>
-  <div class="row">
-
-    {{#each movies}}
-    <div class="col-md-3 col-12">
-      <div class="d-flex flex-column align-items-center h-300">
-        <img class=" movies-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
-
-        <h6 class="mt-4">{{original_title}}</h6>
+          <i id="fav-off" class="material-icons">favorite_border</i>
+        </a>
+        {{/unless}}
       </div>
-      <p><strong>NOTE: </strong>{{vote_average}}</p>
-      <p>{{overview}}</p>
     </div>
+    <div class="col-lg-7">
+      <h1>{{heroes.name}}</h1>
+      <p><strong>Place of birth: </strong>{{heroes.biography.place-of-birth}}</p>
+      <p><strong>Full name: </strong>{{heroes.biography.full-name}}</p>
+      <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
+      <p><strong>Alter egos: </strong>{{heroes.biography.alter-egos}}</p>
+      <p><strong>Aliases: </strong>{{heroes.biography.aliases}}</p>
+      <p><strong>Alignment: </strong>{{heroes.biography.alignment}}</p>
 
-    {{/each}}
+      <section class="canvas-size my-5">
+        <figure>
+          <canvas id="q1"></canvas>
+        </figure>
+      </section>
+
+    </div>
   </div>
 
-</section>
 
-<script src="/javascripts/heroDetailsScript.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <section class="spotify-section">
+    <h4 class="text-center">Related songs</h4>
 
-<script>
-  const drawBarChart = (id) => {
+    <div class="row">
 
-    new Chart(id, {
-      type: 'polarArea',
-      data: {
-        labels: ['Strength', 'Speed', 'Durability', 'Combat', 'Power'],
-        datasets: [{
-          data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
+      {{#each spotify}}
+      <div class="col-md-3 col-6 d-flex flex-column align-items-center">
+
+        <a href="{{album.external_urls.spotify}}"><img class="spotify-img" src="{{album.images.1.url}}"
+            alt="{{name}}"></a>
+
+        <figure>
+          <audio controls src="{{preview_url}}">
+            Your browser does not support the
+            <code>audio</code> element.
+          </audio>
+        </figure>
+      </div>
+
+      {{/each}}
+    </div>
+
+  </section>
+
+  <section class="movies-section">
+    <h4 class="text-center">Related movies</h4>
+    <div class="row">
+
+      {{#each movies}}
+      <div class="col-md-3 col-12">
+        <div class="d-flex flex-column align-items-center h-300">
+          <img class=" movies-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{tittle}}"></a>
+
+          <h6 class="mt-4">{{original_title}}</h6>
+        </div>
+        <p><strong>NOTE: </strong>{{vote_average}}</p>
+        <p>{{overview}}</p>
+      </div>
+
+      {{/each}}
+    </div>
+
+  </section>
+
+  <script src="/javascripts/heroDetailsScript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+  <script>
+    const drawBarChart = (id) => {
+
+      new Chart(id, {
+        type: 'polarArea',
+        data: {
+          labels: ['Strength', 'Speed', 'Durability', 'Combat', 'Power'],
+          datasets: [{
+            data: [{{ heroes.powerstats.strength }}, {{ heroes.powerstats.speed }}, {{ heroes.powerstats.durability }}, {{ heroes.powerstats.combat }}, {{ heroes.powerstats.power }}
         ],
-  borderColor: 'white',
-    borderWidth: 2,
-      backgroundColor: [
-        'rgba(190, 60, 60, .2)',
-        'rgba(60, 120, 190, .2)',
-        'rgba(120, 190, 60, .2)',
-        'rgba(60, 50, 50, .2)',
-        'rgba(120, 60, 190, .2)']
+    borderColor: 'white',
+      borderWidth: 2,
+        backgroundColor: [
+          'rgba(190, 60, 60, .2)',
+          'rgba(60, 120, 190, .2)',
+          'rgba(120, 190, 60, .2)',
+          'rgba(60, 50, 50, .2)',
+          'rgba(120, 60, 190, .2)']
       }]
     },
-  options: {
-    legend: {
-      position: 'left'
+    options: {
+      legend: {
+        position: 'left'
+      }
     }
-  }
     })
   }
 
-  drawBarChart('q1')
-</script>
+    drawBarChart('q1')
+  </script>
 
-<script src="/javascripts/script.js"></script>
+  <script src="/javascripts/script.js"></script>
