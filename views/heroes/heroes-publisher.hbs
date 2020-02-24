@@ -1,0 +1,38 @@
+<h2>Heroes by publisher</h2>
+
+<div class="row">
+    <div class="d-flex flex-wrap align-content-center">
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info" href="/heroes/publisher/Marvel%20Comics">Marvel
+                Comics</a>
+        </div>
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info" href="/heroes/publisher/DC%20Comics">DC
+                Comics</a></div>
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info"
+                href="/heroes/publisher/Dark%20Horse%20Comics">Dark
+                Horse
+                Comics</a></div>
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info" href="/heroes/publisher/NBC%20-%20Heroes">NBC -
+                Heroes</a>
+        </div>
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info" href="/heroes/publisher/Wildstorm">Wildstorm</a>
+        </div>
+        <div class="col-md-4 col-6 text-center"><a class="btn btn-info" href="/heroes/publisher/Image%20Comics">Image
+                Comics</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row wo-sort">
+
+    {{#each heroes}}
+
+    <div class="col-md-3 col-6 mb-4">
+        {{>heroCard this}}
+    </div>
+
+    {{/each}}
+
+</div>

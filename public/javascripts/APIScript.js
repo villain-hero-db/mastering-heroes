@@ -1,3 +1,7 @@
+navbar = () => document.getElementById("navbarSupportedContent").classList.toggle('collapse')
+dropDown = () => document.getElementById("navbarDropdown").classList.toggle('d-none')
+
+
 let t1power = 0
 let t2power = 0
 

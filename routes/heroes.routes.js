@@ -12,7 +12,7 @@ const User = require('../models/user.model')
 // Listado de heroes
 router.get("/heroes", (req, res, next) => {
   Hero.find()
-    .then(response => res.render("heroes/heroes-index", { heroes: response.splice(Math.floor(Math.random() * (650 - 1)) + 1, 12) }))
+    .then(response => res.render("heroes/heroes-index", { heroes: response.splice(Math.floor(Math.random() * (650 - 1)) + 1, 12), user: req.user }))
     .catch(err => next(err));
 });
 
@@ -60,7 +60,8 @@ router.get("/heroes/details/:id", (req, res, next) => {
         heroes: results[0],
         spotify: spotify,
         movies: movies,
-        fav: results[3]
+        fav: results[3],
+        user: req.user
       });
     })
     .catch(err => next(err));
@@ -85,7 +86,15 @@ router.post("/api/heroes/details", (req, res, next) => {
 });
 
 
+// Listado por publisher
 
+router.get('/heroes/publisher/:publisher', (req, res) => {
+  const heroPublisher = req.params.publisher
+
+  Hero.find({ publisher: heroPublisher })
+    .then(heroes => res.render('heroes/heroes-publisher', { heroes: heroes, user: req.user }))
+    .catch(err => console.log("Error consultadno los libros en la BBDD: ", err))
+})
 
 
 

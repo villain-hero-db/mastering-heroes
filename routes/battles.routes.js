@@ -9,7 +9,8 @@ router.get("/battles", (req, res) => {
     Hero.find()
         .then(response =>
             res.render("heroes/heroes-battles", {
-                heroes: response
+                heroes: response,
+                user: req.user
             })
         )
         .catch(err => console.log(err));

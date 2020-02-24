@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <img class="img-logo" src="/images/logo-mastering.png" alt="logo">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="navbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -30,21 +30,36 @@
           <a class="nav-link" href="/profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/heroes">Heroes list</a>
+          <a class="nav-link" href="/heroes">Sort alphabetically</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" onclick="dropDown()" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Sort by publisher</a>
+          <div class="dropdown-menu d-none" id="navbarDropdown">
+            <a class="dropdown-item" href="/heroes/publisher/Marvel%20Comics">Marvel Comics</a>
+            <a class="dropdown-item" href="/heroes/publisher/DC%20Comics">DC Comics</a>
+            <a class="dropdown-item" href="/heroes/publisher/Dark%20Horse%20Comics">Dark Horse Comics</a>
+            <a class="dropdown-item" href="/heroes/publisher/NBC%20-%20Heroes">NBC - Heroes</a>
+            <a class="dropdown-item" href="/heroes/publisher/Wildstorm">Wildstorm</a>
+            <a class="dropdown-item" href="/heroes/publisher/Image%20Comics">Image Comics</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/battles">Battles</a>
         </li>
-
+        {{#unless user}}
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/signup">Signup</a>
         </li>
+        {{/unless}}
+        {{#if user}}
         <li class="nav-item">
           <a id="log-toggle" class="nav-link" href="/logout">Logout</a>
         </li>
+        {{/if}}
       </ul>
     </div>
   </nav>
