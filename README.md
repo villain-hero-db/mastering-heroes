@@ -1,8 +1,12 @@
-# mastering-heroes
+# Mastering-heroes
 
 Mastering Heroes es un website que recopila datos de mas de 500 héroes y villanos.
 
 En ella aparte de poder ver sus datos y características podrás simular batallas entre ellos.
+
+##Demo:
+
+https://mastering-heroes.herokuapp.com
 
 ## Información técnica
 
